@@ -1,22 +1,18 @@
 import { Request, Response, NextFunction } from 'express';
 import { Service, Container } from 'typedi';
 import { UserMilestoneService } from '@/services/usermilestone.service';
-import { HttpException } from '@/exceptions/HttpException';
+import { UserVoucherDto } from '@/dtos/user-voucher.dto';
 
 @Service()
 export class UserMilestoneController {
     private userMilestoneService = Container.get(UserMilestoneService);
 
-    public getUserQrCodes = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    public getUserVouchers = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         try {
             const userId: string = req.params.id;
-            const qrcodes: string[] = await this.userMilestoneService.getUserQrCodes(userId);
+            const vouchers: UserVoucherDto[] = await this.userMilestoneService.getUserVouchers(userId);
 
-            if (!qrcodes || qrcodes.length === 0) {
-                throw new HttpException(404, 'QR codes not found');
-            }
-
-            res.status(200).json(qrcodes);
+            res.status(200).json(vouchers);
         } catch (error) {
             next(error);
         }

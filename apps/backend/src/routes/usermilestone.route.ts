@@ -11,7 +11,7 @@ export class UserMilestoneRoute implements Routes {
     }
 
     private initializeRoutes() {
-        this.router.get('/:id/qrcodes', this.userMilestoneController.getUserQrCodes);
+        this.router.get('/:id/vouchers', this.userMilestoneController.getUserVouchers);
         this.router.post('/generate-qrcode', this.userMilestoneController.generateQrCode);
     }
 }
