@@ -31,11 +31,15 @@ definitions:
   submitReceipt:
     type: object
     required:
-      - image
+      - beforeImage
+      - afterImage
     properties:
-      image:
+      beforeImage:
         type: string
-        description: image base64
+        description: Base64 encoded image of the receipt before processing
+      afterImage:
+        type: string
+        description: Base64 encoded image of the receipt after processing
       address:
         type: string
         description: User's address

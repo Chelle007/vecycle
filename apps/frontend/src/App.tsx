@@ -32,12 +32,12 @@ function App() {
             justifyContent={"flex-start"}
             flexDirection={"column"}
           >
-            <InfoCard />
-            <Instructions />
+            {/* <InfoCard /> */}
+            {/* <Instructions /> */}
             <Dropzone />
           </Container>
         </Flex>
-        <Footer />
+        {/* <Footer /> */}
 
         {/* MODALS  */}
         <SubmissionModal />

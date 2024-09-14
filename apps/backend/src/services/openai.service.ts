@@ -5,29 +5,42 @@ import { Service } from 'typedi';
 
 @Service()
 export class OpenaiService {
-  public async validateImage(image: string): Promise<unknown> {
-    if (!isBase64Image(image)) throw new HttpException(400, 'Invalid image format');
+  public async validateImages(beforeImage: string, afterImage: string): Promise<unknown> {
+    // Validate that both images are in base64 format
+    if (!isBase64Image(beforeImage)) throw new HttpException(400, 'Invalid format for before image');
+    if (!isBase64Image(afterImage)) throw new HttpException(400, 'Invalid format for after image');
 
     const prompt = `
-                    Analyze the image provided. The image MUST satisfy all of the following criteria:
-                        1. It must have as subject a receipt of purchase of at least one product.
-                        2. It must not be a screenshot.
-                        3. It must include the date of the purchase.
-                        4. It must include the name of the store where the purchase was made.
-                    Please respond always and uniquely with the following JSON object as you are REST API that returns the following object:
-                    {
-                    "validityFactor": {validityFactorNumber}, // 0-1, 1 if it satisfies all the criteria, 0 otherwise
-                    "descriptionOfAnalysis": "{analysis}", // indicate your analysis of the image and why it satisfies or not the criteria. The analysis will be shown to the user so make him understand why the image doesn't satisfy the criteria if it doesn't without going into detail on exact criteria. Remember we are rewarding users that drink coffee in a sustainable way.
-                    }
-                    `;
+      Analyze the two images provided: one is a "before" image representing raw material, and the other is an "after" image representing the result of recycling that raw material.
+
+      You are an API that must always respond with the following JSON object:
+      {
+        "validityFactorBefore": {validityFactorNumber},  // A number between 0-1. 1 if the "before" image meets the criteria for being raw material; 0 if not.
+        "validityFactorAfter": {validityFactorNumber},   // A number between 0-1. 1 if the "after" image meets the criteria for being the result of recycling the raw material; 0 if not.
+        "descriptionOfAnalysis": "{analysis}"            // Provide a clear and concise analysis of both images, explaining why they meet or fail the criteria. This analysis should be simple enough for the user to understand, especially if an image doesn't meet the criteria. The analysis is meant for users engaged in sustainable practices like recycling, so focus on the key points without excessive detail.
+      }
+
+      You must return this JSON object directly, without any apologies, explanations, or additional text.
+    `;
 
     const gptResponse = await openAIHelper.askChatGPTAboutImage({
-      base64Image: image,
+      beforeImage,
+      afterImage,
       prompt,
     });
 
-    const responseJSONStr = openAIHelper.getResponseJSONString(gptResponse);
+    const responseContent = gptResponse.choices[0].message.content;
+    console.log("GPT Response Content:", responseContent);
 
-    return openAIHelper.parseChatGPTJSONString(responseJSONStr);
+    return this.parseChatGPTJSONString(responseContent);
+  }
+
+  private parseChatGPTJSONString(jsonString: string): unknown {
+    try {
+      return JSON.parse(jsonString);
+    } catch (error) {
+      console.error('Error parsing GPT response:', error);
+      throw new HttpException(500, 'Failed to parse OpenAI response');
+    }
   }
 }

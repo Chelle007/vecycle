@@ -19,28 +19,52 @@ export class OpenAIHelper {
       dangerouslyAllowBrowser: true, // TODO: Check if this is necessary
     });
 
-  public askChatGPTAboutImage = async ({ base64Image, maxTokens = 350, prompt }: { base64Image: string; prompt: string; maxTokens?: number }) =>
-    this.openai.chat.completions.create({
-      model: 'gpt-4o',
-      max_tokens: maxTokens,
-      messages: [
-        {
-          role: 'user',
-          content: [
-            {
-              type: 'text',
-              text: prompt,
-            },
-            {
-              type: 'image_url',
-              image_url: {
-                url: base64Image,
+  public askChatGPTAboutImage = async ({ base64Image, maxTokens = 350, prompt }: { base64Image: string; prompt: string; maxTokens?: number }) => {
+    try {
+      const response = await this.openai.chat.completions.create({
+        model: 'gpt-4o', // Ensure this is the correct model
+        max_tokens: maxTokens,
+        messages: [
+          {
+            role: 'user',
+            content: [
+              {
+                type: 'text',
+                text: prompt,
               },
-            },
-          ],
-        },
-      ],
-    });
+              {
+                type: 'text', // Use 'text' if base64 images are not supported
+                text: base64Image,
+              },
+            ],
+          },
+        ],
+      });
+      // console.log("Raw response from OpenAI:", response); // Log raw response for debugging
+
+      console.log("rawContent: " + response.choices[0].message.content);
+
+      // Now access validityFactorBefore and validityFactorAfter
+
+      // console.log("validityFactorBefore:", validityFactorBefore);
+      // console.log("validityFactorAfter:", validityFactorAfter);
+
+      // console.log(response.choices[0].message.content.validityFactorBefore, response.choices[0].message.content.validityFactorAfter);
+      // console.log("with json parse " + JSON.parse(response.choices[0].message.content).validityFactorBefore);
+      // console.log("AFTERRRRR" + JSON.parse(response.choices[0].message.content.replace(/```json|```/g, '')).validityFactorBefore);
+
+      // validityFactorBefore ====
+      // JSON.parse(response.choices[0].message.content.replace(/```json|```/g, '')).validityFactorBefore;
+
+
+      // console.log(response?.validation);
+      // console.log(response?.validation.validityFactorBefore, response?.validation.validityFactorAfter);
+      return response;
+    } catch (error) {
+      console.error('Error in askChatGPTAboutImage:', error);
+      throw new Error('Failed to communicate with OpenAI');
+    }
+  };
 
   public getResponseJSONString = (response: ChatCompletion) => response.choices[0].message.content;
 
