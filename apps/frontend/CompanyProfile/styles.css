@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.back-button {
+  width: 40px;
+  font-size: 30px;
+  border: 0;
+  border-radius: 50px;
+  height: 40px;
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.back-button :hover {
+  filter: opacity(0.5);
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  /* background-color: #d3d3d3; */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.company-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.company-banner {
+  background-color: #eaeaea;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.company-banner p {
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.progress-section {
+  background-color: #bdbdbd;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.progress-info {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.progress-text {
+  font-size: 1rem;
+  flex-grow: 1;
+  font-weight: bold;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #000;
+  height: 12px;
+  position: relative;
+  border-radius: 6px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: limegreen;
+}
+
+.check-icon {
+  position: absolute;
+  top: -12px;
+  left: 40%;
+  font-size: 1.5rem;
+  color: limegreen;
+}
+
+.lock-icon {
+  position: absolute;
+  top: -12px;
+  right: 0;
+  font-size: 1.5rem;
+  color: #888;
+}
+
+.voucher-card {
+  background-color: #eaeaea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.voucher-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.voucher-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.voucher-status {
+  display: flex;
+  align-items: center;
+}
+
+.status-text {
+  margin-left: 10px;
+  font-size: 0.9rem;
+  background-color: #888;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.voucher-icon {
+  font-size: 2rem;
+  color: limegreen;
+}
+
+.voucher-icon.locked {
+  color: #888;
+}
+
+.completed {
+  background-color: #d3d3d3;
+}
+
+.recycle-button {
+  background-color: #8b8585;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 20px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.recycle-button p {
+  font-size: 1rem;
+  margin-left: 10px;
+}
+
+/* .bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #eaeaea;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 400px;
+  border-top: 1px solid #ccc;
+} */
+
+.nav-item p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.nav-wrapper {
+  display: flex;
+  /* justify-content: center; */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #eaeaea;
+  padding: 10px 0;
+  width: 100%;
+  max-width: 400px;
+  border-top: 1px solid #ccc;
+}

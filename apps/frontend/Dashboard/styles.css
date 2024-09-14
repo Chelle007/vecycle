@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.company-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eaeaea;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.company-info {
+  width: 70%;
+}
+
+.company-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.progress-text {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #000;
+  height: 8px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: limegreen;
+  border-radius: 5px;
+}
+
+.company-logo {
+  width: 20%;
+  text-align: center;
+}
+
+.company-logo p {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.main-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 150px;
+  background-color: #eaeaea;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.main-logo p {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #555;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #eaeaea;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 400px;
+  border-top: 1px solid #ccc;
+}
+
+.nav-item {
+  text-align: center;
+}
+
+.nav-item p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+hr {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin: 15px 0;
+}
+
+.company-link {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.company-link:hover {
+  filter: opacity(0.5);
+}

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div style="width: 400px">
+      <div class="container" style="display: flex; flex-direction: column">
+        <!-- Company Header -->
+        <div style="display: flex; flex-direction: row">
+          <button onclick="goBack()" class="back-button"><</button>
+
+          <script>
+            function goBack() {
+              window.history.back();
+            }
+          </script>
+
+          <h1 class="company-title">Company Name</h1>
+        </div>
+        <div class="company-banner">
+          <p>Company banner</p>
+        </div>
+
+        <!-- Progress Bar Section -->
+        <div class="progress-section">
+          <div class="progress-info" style="display: flex; flex-wrap: wrap">
+            <!-- <img src="icon-placeholder.png" alt="Icon" class="icon" /> -->
+            <p class="progress-text">🏁4,000 / 10,000</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 40%"></div>
+              <!-- <div class="check-icon">✔</div>
+            <div class="lock-icon">🔒</div> -->
+            </div>
+          </div>
+
+          <!-- Voucher Section 1 -->
+          <div class="voucher-card">
+            <div class="voucher-info">
+              <p class="voucher-title">$90 Voucher</p>
+              <div class="voucher-status">
+                <!-- <img src="icon-placeholder.png" alt="Icon" class="icon" /> -->
+                <p class="status-text">Completed</p>
+              </div>
+            </div>
+            <div class="voucher-icon locked">✅</div>
+          </div>
+
+          <!-- Voucher Section 2 -->
+          <div class="voucher-card">
+            <div class="voucher-info">
+              <p class="voucher-title">$90 Voucher</p>
+              <div class="voucher-status">
+                <!-- <img src="icon-placeholder.png" alt="Icon" class="icon" /> -->
+                <p class="status-text">6000 to go!</p>
+              </div>
+            </div>
+            <div class="voucher-icon">🔒</div>
+          </div>
+
+          <!-- Recycle Button -->
+          <div class="recycle-button">
+            <!-- <img src="icon-placeholder.png" alt="Recycle Icon" class="icon" /> -->
+            <p>Let’s Recycle!</p>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom Navigation -->
+      <div class="nav-wrapper">
+        <div class="bottom-nav">
+          <div class="nav-item">
+            <p>Explore</p>
+          </div>
+          <div class="nav-item">
+            <p>Post</p>
+          </div>
+          <div class="nav-item">
+            <p>Profile</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

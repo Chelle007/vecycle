@@ -1,49 +1,26 @@
-import { DAppKitProvider } from "@vechain/dapp-kit-react";
-import { ChakraProvider, Container, Flex } from "@chakra-ui/react";
-import {
-  Dropzone,
-  Footer,
-  InfoCard,
-  Instructions,
-  Navbar,
-  SubmissionModal,
-} from "./components";
-import { lightTheme } from "./theme";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+// import HomePage from "./components-backup/HomePage";
+// import CompanyDashboardPage from "./components-backup/CompanyDashboardPage";
+// import ProfilePage from "./components-backup/ProfilePage";
+// import BottomNavBar from "./components-backup/BottomNavBar";
+import { Container } from "react-bootstrap";
+import HomePage from "./components/HomePage";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <ChakraProvider theme={lightTheme}>
-      <DAppKitProvider
-        usePersistence
-        requireCertificate={false}
-        genesis="test"
-        nodeUrl="https://testnet.vechain.org/"
-        logLevel={"DEBUG"}
-      >
-        <Navbar />
-        <Flex flex={1}>
-          <Container
-            mt={{ base: 4, md: 10 }}
-            maxW={"container.xl"}
-            mb={{ base: 4, md: 10 }}
-            display={"flex"}
-            flex={1}
-            alignItems={"center"}
-            justifyContent={"flex-start"}
-            flexDirection={"column"}
-          >
-            <InfoCard />
-            <Instructions />
-            <Dropzone />
-          </Container>
-        </Flex>
-        <Footer />
-
-        {/* MODALS  */}
-        <SubmissionModal />
-      </DAppKitProvider>
-    </ChakraProvider>
+    <div className="d-flex flex-column" style={{ minHeight: "100vh" }}>
+      <Container className="flex-grow-1 mt-3">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          {/* <Route path="/dashboard" element={<CompanyDashboardPage />} /> */}
+          {/* <Route path="/profile" element={<ProfilePage />} /> */}
+        </Routes>
+      </Container>
+      {/* <BottomNavBar /> */}
+    </div>
   );
-}
+};
 
 export default App;
