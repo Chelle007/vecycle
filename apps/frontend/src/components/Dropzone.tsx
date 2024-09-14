@@ -77,6 +77,7 @@ export const Dropzone = () => {
 
   return (
     <VStack w={"full"} mt={3}>
+      <Text fontSize={40} color="black" fontWeight="bold" textAlign="center">Upload Before and After</Text>
       <Box
         {...getRootProps()}
         p={5}
@@ -100,7 +101,7 @@ export const Dropzone = () => {
         <input {...getInputProps()} />
         <HStack>
           <ScanIcon size={120} color={"gray"} />
-          <Text>Upload to scan</Text>
+          <Text>Upload 2 images</Text>
         </HStack>
       </Box>
     </VStack>
