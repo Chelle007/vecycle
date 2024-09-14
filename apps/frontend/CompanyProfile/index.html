@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Handlebars.js library reference: https://handlebarsjs.com/guide/ -->
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+  </head>
+  <body>
+    <script id="company-profile-template" type="text/x-handlebars-template">
+      <div class="container">
+        <h1 class="company-title">{{companyName}}</h1>
+        <div class="company-banner">
+          <img src="{{bannerImgUrl}}" alt="{{companyName}} banner">
+        </div>
+      </div>
+
+      <div class="progress-rewards-container container">
+        <div class="progress-section">
+          <div class="progress-info">
+            <span class="progress-text">
+              <img src="../src/assets/img/b3tr-token-logo.avif" class="b3tr-token-logo">
+              {{userToken}}/{{token_to_reach}} Tokens
+            </span>
+          </div>
+          <div class="progress-bar">
+            <!-- its error here, actually its okay, nothing is wrong -->
+            <div class="progress" style="width: {{progressWidth}}"></div>
+          </div>
+          <!-- unlocked milestone -->
+          <div class="milestone">
+            <div class="milestone-line"></div>
+            <div class="milestone-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+              </svg>
+            </div>
+          </div>
+          <!-- locked milestone -->
+          <div class="milestone milestone-2 locked">
+            <div class="milestone-line-locked"></div>
+            <div class="milestone-circle-locked">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        {{#each rewards}}
+        
+        <div class="voucher-card {{lockedClass}}">
+          <div class="voucher-info">
+            <span class="voucher-title">{{rewardName}}</span>
+            <div class="voucher-status">
+              <img src="../src/assets/img/b3tr-token-logo.avif" class="b3tr-token-logo">
+              <span class="status-text">
+                {{statusText}}
+              </span>
+            </div>
+          </div>
+          <span class="voucher-icon">{{statusIcon}}</span>
+        </div>
+        {{/each}}
+      </div>
+
+      <!-- Bottom Navigation -->
+    </script>
+    
+    <div id="company-profile-container"></div>
+
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+    <script src="../global.js"></script>
+    <script src="company-profile.js"></script>
+  </body>
+</html>
