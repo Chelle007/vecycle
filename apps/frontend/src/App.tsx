@@ -1,49 +1,17 @@
-import { DAppKitProvider } from "@vechain/dapp-kit-react";
-import { ChakraProvider, Container, Flex } from "@chakra-ui/react";
-import {
-  Dropzone,
-  Footer,
-  InfoCard,
-  Instructions,
-  Navbar,
-  SubmissionModal,
-} from "./components";
-import { lightTheme } from "./theme";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import DashboardComponent from './components/DashboardComponent';
+import CompanyProfileComponent from './components/CompanyProfileComponent';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <ChakraProvider theme={lightTheme}>
-      <DAppKitProvider
-        usePersistence
-        requireCertificate={false}
-        genesis="test"
-        nodeUrl="https://testnet.vechain.org/"
-        logLevel={"DEBUG"}
-      >
-        <Navbar />
-        <Flex flex={1}>
-          <Container
-            mt={{ base: 4, md: 10 }}
-            maxW={"container.xl"}
-            mb={{ base: 4, md: 10 }}
-            display={"flex"}
-            flex={1}
-            alignItems={"center"}
-            justifyContent={"flex-start"}
-            flexDirection={"column"}
-          >
-            <InfoCard />
-            <Instructions />
-            <Dropzone />
-          </Container>
-        </Flex>
-        <Footer />
-
-        {/* MODALS  */}
-        <SubmissionModal />
-      </DAppKitProvider>
-    </ChakraProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<DashboardComponent />} />
+        <Route path="/company-profile" element={<CompanyProfileComponent />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
