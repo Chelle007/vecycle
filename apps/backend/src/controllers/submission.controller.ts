@@ -18,7 +18,7 @@ export class SubmissionController {
         timestamp: Date.now(),
       };
       // Submission validation with smart contract
-      await this.contracts.validateSubmission(submissionRequest);
+      // await this.contracts.validateSubmission(submissionRequest);
 
       const validationResult = await this.openai.validateImage(body.image);
 
