@@ -14,7 +14,10 @@
     "deploy:dev": "pm2 start ecosystem.config.js --only dev"
   },
   "dependencies": {
+    "@nestjs/common": "^10.4.1",
+    "@nestjs/typeorm": "^10.0.2",
     "@repo/config-contract": "*",
+    "@types/uuid": "^10.0.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "compression": "^1.7.4",
@@ -36,6 +39,7 @@
     "swagger-ui-express": "^4.5.0",
     "typedi": "^0.10.0",
     "typeorm": "^0.3.20",
+    "uuid": "^10.0.0",
     "winston": "^3.8.1",
     "winston-daily-rotate-file": "^4.7.1"
   },

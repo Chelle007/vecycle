@@ -1,4 +1,3 @@
-// src/users/user.service.ts
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -13,35 +12,30 @@ export class UserService {
         private readonly userRepository: Repository<User>,
     ) { }
 
-    async create(createUserDto: CreateUserDto): Promise<User> {
+    async getUserById(id: string): Promise<User> {
+        const user = await this.userRepository.findOne({ where: { user_id: id } });
 
-        if (this.userRepository.findOne({ where: { walletAddress: createUserDto.walletAddress } })) {
-            throw new Error('User already exists with this wallet address: ' + createUserDto.walletAddress)
-        }
-
-        const user = this.userRepository.create(createUserDto);
-        return this.userRepository.save(user);
-    }
-
-    async findOne(id: string): Promise<User> {
-        const user = await this.userRepository.findOneBy({ id });
         if (!user) {
-            throw new NotFoundException(`User with id ${id} not found`);
+            throw new NotFoundException(`User with ID ${id} not found`);
         }
         return user;
     }
 
-    async update(id: string, updateUserDto: UpdateUserDto): Promise<User> {
-        const existingUser = await this.userRepository.findOneBy({ id });
-        if (!existingUser) {
-            throw new NotFoundException(`User with id ${id} not found`);
-        }
-
-        const updatedUser = { ...existingUser, ...updateUserDto };
-
-        await this.userRepository.save(updatedUser);
-
-        return this.findOne(id);
+    async createUser(createUserDto: CreateUserDto): Promise<User> {
+        const user = this.userRepository.create(createUserDto);
+        return await this.userRepository.save(user);
     }
 
+    async updateUser(id: string, updateUserDto: UpdateUserDto): Promise<User> {
+        const user = await this.userRepository.preload({
+            user_id: id,
+            ...updateUserDto,
+        });
+
+        if (!user) {
+            throw new NotFoundException(`User with ID ${id} not found`);
+        }
+
+        return await this.userRepository.save(user);
+    }
 }
