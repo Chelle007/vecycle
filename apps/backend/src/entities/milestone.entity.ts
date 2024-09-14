@@ -8,6 +8,9 @@ export class Milestone {
     @Column()
     company_id: string;
 
+    @Column()
+    reward_name: string;
+
     @Column('decimal', { precision: 10, scale: 2 })
     token_to_reach: number;
 }
