@@ -15,6 +15,8 @@
   },
   "dependencies": {
     "@nestjs/common": "^10.4.1",
+    "@nestjs/serve-static": "^4.0.2",
+    "@nestjs/swagger": "^7.4.0",
     "@nestjs/typeorm": "^10.0.2",
     "@repo/config-contract": "*",
     "@types/uuid": "^10.0.0",
@@ -36,7 +38,7 @@
     "pg": "^8.12.0",
     "reflect-metadata": "^0.1.14",
     "swagger-jsdoc": "^6.2.1",
-    "swagger-ui-express": "^4.5.0",
+    "swagger-ui-express": "^5.0.1",
     "typedi": "^0.10.0",
     "typeorm": "^0.3.20",
     "uuid": "^10.0.0",

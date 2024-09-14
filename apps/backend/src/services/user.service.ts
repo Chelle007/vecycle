@@ -22,7 +22,13 @@ export class UserService {
     }
 
     async createUser(createUserDto: CreateUserDto): Promise<User> {
-        const user = this.userRepository.create(createUserDto);
+        const defaultProfileImgUrl = '/public/images/default-profile-img.png';
+
+        const user = this.userRepository.create({
+            ...createUserDto,
+            profile_imgurl: defaultProfileImgUrl
+        });
+
         return await this.userRepository.save(user);
     }
 
