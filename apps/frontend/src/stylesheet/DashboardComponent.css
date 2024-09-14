@@ -8,9 +8,13 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     padding: 20px;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .container {
+    width: 100%;
     max-width: 400px;
     margin: 0 auto;
 }
@@ -83,27 +87,6 @@ h1 {
 .main-logo p {
     font-size: 1.2rem;
     text-align: center;
-    color: #555;
-}
-
-.bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    background-color: #eaeaea;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    max-width: 400px;
-    border-top: 1px solid #ccc;
-}
-
-.nav-item {
-    text-align: center;
-}
-
-.nav-item p {
-    font-size: 0.9rem;
     color: #555;
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../stylesheet/CompanyProfileComponent.css';
+import NavbarComponent from './NavbarComponent';
 
 // Define the structure of the profile data using TypeScript interfaces
 interface Reward {
@@ -102,20 +103,7 @@ const CompanyProfileComponent: React.FC = () => {
                 </div>
             ))}
 
-            {/* Bottom Navigation */}
-            <div className="nav-wrapper">
-                <div className="bottom-nav">
-                    <div className="nav-item">
-                        <p>Explore</p>
-                    </div>
-                    <div className="nav-item">
-                        <p>Post</p>
-                    </div>
-                    <div className="nav-item">
-                        <p>Profile</p>
-                    </div>
-                </div>
-            </div>
+            <NavbarComponent currentPath="/company-profile" />
         </div>
     );
 };

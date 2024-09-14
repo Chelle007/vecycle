@@ -180,41 +180,6 @@ body {
     margin-left: 10px;
 }
 
-/* .bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    background-color: #eaeaea;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    max-width: 400px;
-    border-top: 1px solid #ccc;
-  } */
-
-.nav-item p {
-    font-size: 0.9rem;
-    color: #555;
-}
-
-.nav-wrapper {
-    display: flex;
-    /* justify-content: center; */
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-.bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    background-color: #eaeaea;
-    padding: 10px 0;
-    width: 100%;
-    max-width: 400px;
-    border-top: 1px solid #ccc;
-}
-
 /* Milestones */
 .milestone {
     position: relative;
