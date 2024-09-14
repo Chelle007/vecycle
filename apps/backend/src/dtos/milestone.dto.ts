@@ -5,5 +5,5 @@ export class MilestoneDto {
     token_to_reach: number;
 
     @IsString()
-    rewardName: string;
+    reward_name: string;
 }

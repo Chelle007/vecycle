@@ -1,15 +1,24 @@
-import { Controller, Get, Param } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
-import { MilestoneService } from '../services/milestone.service';
-import { MilestoneDto } from '../dtos/milestone.dto';
+import { Request, Response, NextFunction } from 'express';
+import { Container } from 'typedi';
+import { MilestoneService } from '@/services/milestone.service'; // Adjust the import path as necessary
+import { MilestoneDto } from '@/dtos/milestone.dto'; // Adjust the import path as necessary
+import { HttpException } from '@/exceptions/HttpException'; // Adjust the import path as necessary
 
-@ApiTags('milestones')
-@Controller('milestones')
 export class MilestoneController {
-    constructor(private readonly milestoneService: MilestoneService) { }
+    private milestoneService = Container.get(MilestoneService);
 
-    @Get('company/:companyId')
-    async getMilestonesByCompanyId(@Param('companyId') companyId: string): Promise<MilestoneDto[]> {
-        return this.milestoneService.getMilestonesByCompanyId(companyId);
-    }
+    public getMilestonesByCompanyId = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+        try {
+            const companyId: string = req.params.companyId;
+            const milestones: MilestoneDto[] = await this.milestoneService.getMilestonesByCompanyId(companyId);
+
+            if (!milestones) {
+                throw new HttpException(404, 'No milestones found for this company');
+            }
+
+            res.status(200).json(milestones);
+        } catch (error) {
+            next(error);
+        }
+    };
 }

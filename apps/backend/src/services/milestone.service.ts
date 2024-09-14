@@ -23,7 +23,7 @@ export class MilestoneService {
 
         return milestones.map(milestone => ({
             token_to_reach: milestone.token_to_reach,
-            rewardName: milestone.reward_name,
+            reward_name: milestone.reward_name,
         }));
     }
 }

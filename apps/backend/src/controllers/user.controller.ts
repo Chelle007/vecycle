@@ -1,26 +1,52 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
-import { UserService } from '../services/user.service';
-import { CreateUserDto } from '../dtos/create-user.dto';
-import { UpdateUserDto } from '../dtos/update-user.dto';
+import { Request, Response, NextFunction } from 'express';
+import { Service, Container } from 'typedi';
+import { UserService } from '@/services/user.service';
+import { CreateUserDto } from '@/dtos/create-user.dto';
+import { UpdateUserDto } from '@/dtos/update-user.dto';
+import { HttpException } from '@/exceptions/HttpException';
 
-@ApiTags('users')
-@Controller('users')
+@Service()
 export class UserController {
-    constructor(private readonly userService: UserService) { }
+    private userService = Container.get(UserService);
 
-    @Get(':id')
-    async getUserById(@Param('id') id: string) {
-        return this.userService.getUserById(id);
-    }
+    public getUserById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+        try {
+            const userId: string = req.params.id;
+            const user = await this.userService.getUserById(userId);
 
-    @Post()
-    async createUser(@Body() createUserDto: CreateUserDto) {
-        return this.userService.createUser(createUserDto);
-    }
+            if (!user) {
+                throw new HttpException(404, 'User not found');
+            }
 
-    @Post(':id')
-    async updateUser(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-        return this.userService.updateUser(id, updateUserDto);
-    }
+            res.status(200).json(user);
+        } catch (error) {
+            next(error);
+        }
+    };
+
+    public createUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+        try {
+            const createUserDto: CreateUserDto = req.body;
+            const newUser = await this.userService.createUser(createUserDto);
+            res.status(201).json(newUser);
+        } catch (error) {
+            next(error);
+        }
+    };
+
+    public updateUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+        try {
+            const userId: string = req.params.id;
+            const updateUserDto: UpdateUserDto = req.body;
+            const updatedUser = await this.userService.updateUser(userId, updateUserDto);
+
+            if (!updatedUser) {
+                throw new HttpException(404, 'User not found');
+            }
+
+            res.status(200).json(updatedUser);
+        } catch (error) {
+            next(error);
+        }
+    };
 }

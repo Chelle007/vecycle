@@ -2,6 +2,7 @@ import { App } from '@/app';
 import { initializeOpenAI } from './utils/initializeOpenAI';
 import { SubmissionRoute } from './routes/submission.route';
 import { AppDataSource } from './data-source';
+import { UserSeederService } from './services/user-seeder.service';
 
 export const openAIHelper = initializeOpenAI();
 

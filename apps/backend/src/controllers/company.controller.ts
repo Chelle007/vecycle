@@ -1,15 +1,24 @@
-import { Controller, Get, Param } from '@nestjs/common';
-import { ApiTags } from '@nestjs/swagger';
-import { CompanyService } from '../services/company.service';
-import { Company } from '../entities/company.entity';
+import { Request, Response, NextFunction } from 'express';
+import { Container } from 'typedi';
+import { CompanyService } from '@/services/company.service';
+import { HttpException } from '@/exceptions/HttpException';
+import { Company } from '@/entities/company.entity';
 
-@ApiTags('companies')
-@Controller('companies')
 export class CompanyController {
-    constructor(private readonly companyService: CompanyService) { }
+    private companyService = Container.get(CompanyService);
 
-    @Get(':id')
-    async getCompanyById(@Param('id') id: string): Promise<Company> {
-        return this.companyService.getCompanyById(id);
-    }
+    public getCompanyById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+        try {
+            const companyId: string = req.params.id;
+            const company: Company = await this.companyService.getCompanyById(companyId);
+
+            if (!company) {
+                throw new HttpException(404, 'Company not found');
+            }
+
+            res.status(200).json(company);
+        } catch (error) {
+            next(error);
+        }
+    };
 }
