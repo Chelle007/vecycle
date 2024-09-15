@@ -22,7 +22,7 @@ const DashboardComponent: React.FC = () => {
                         </div>
                     </div>
                     <div className="company-logo">
-                        <p>Company's logomark</p>
+                        <img src="../src/assets/img/dasani-Logo.png" alt="dasani logo" className="logo-image" />
                     </div>
                 </div>
             </Link>
@@ -41,7 +41,7 @@ const DashboardComponent: React.FC = () => {
                         </div>
                     </div>
                     <div className="company-logo">
-                        <p>Company's logomark</p>
+                        <img src="../src/assets/img/cocacola.png" alt="Coca Cola logo" className="logo-image" />
                     </div>
                 </div>
             </Link>
@@ -60,14 +60,15 @@ const DashboardComponent: React.FC = () => {
                         </div>
                     </div>
                     <div className="company-logo">
-                        <p>Company's logomark</p>
+                        <img src="../src/assets/img/evian.jpeg" alt="evian logo" className="logo-image evian" />
                     </div>
                 </div>
             </Link>
 
-            <div className="main-logo">
-                <img src="../assets/img/long-icon.png" alt="VeCycle logo" className="logo-image" />
-            </div>
+            {/* <div className="main-logo"> */}
+                <img src="../src/assets/img/logotype.png" alt="VeCycle logo" className="logo-type-vecycle" />
+                {/* <img src="../" alt="VeCycle logo" className="logo-image" /> */}
+            {/* </div> */}
 
             <NavbarComponent currentPath="/" />
         </div>

@@ -64,8 +64,14 @@ h1 {
 }
 
 .company-logo {
-    width: 20%;
+    width: 30%;
     text-align: center;
+}
+
+.company-logo img {
+    width: 100%;
+    padding-left: 0.5em;
+    height: auto;
 }
 
 .company-logo p {
@@ -82,6 +88,7 @@ h1 {
     background-color: #eaeaea;
     border-radius: 10px;
     margin: 20px 0;
+    padding: 16px;
 }
 
 .main-logo p {
@@ -105,4 +112,18 @@ hr {
 
 .company-link:hover {
     filter: opacity(0.5);
+}
+
+.evian {
+    border-radius: 20px;
+    padding: 0.4em;
+}
+
+.logo-type-vecycle {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4.5em auto;
+    /* height: 150px; */
 }

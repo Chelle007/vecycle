@@ -28,7 +28,8 @@ const ProfileComponent: React.FC = () => {
 
             <div className="top-contributions">
                 <p className="section-title">Top Contributions:</p>
-                <div className="contributions-chart"><img src="../assets/img/top3graph.jpeg" alt="Contributions chart" /></div>
+                <div className="contributions-chart">
+                    <img src="../../src/assets/img/top3graph.jpeg" alt="Contributions chart" /></div>
             </div>
 
             <div className="contribution-history">
