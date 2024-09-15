@@ -111,12 +111,9 @@ body {
     height: auto;
     background-size: cover;
     border: 1px solid #ddd;
-    /* background-position: center; */
-    /* background-repeat: no-repeat; */
     align-items: center;
     justify-content: center;
     margin-bottom: 10px;
-    /* padding: 1em; */
 }
 .contributions-chart img {
     object-fit: contain;
