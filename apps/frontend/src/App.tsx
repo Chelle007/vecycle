@@ -2,6 +2,7 @@ import { DAppKitProvider } from "@vechain/dapp-kit-react";
 import { ChakraProvider, Container, Flex } from "@chakra-ui/react";
 import {
   Dropzone,
+  UserInstructions,
   Footer,
   InfoCard,
   Instructions,
@@ -34,6 +35,7 @@ function App() {
             {/* <InfoCard /> */}
             {/* <Instructions /> */}
             <Dropzone />
+            <UserInstructions />
           </Container>
         </Flex>
         {/* <Footer /> */}
