@@ -1,6 +1,8 @@
 @font-face {
-  font-family: 'Karla'; /* You can name it anything */
-  src: url('../src/assets/font-family/Karla-VariableFont_wght.ttf') format('truetype'); /* Use correct path */
+  font-family: 'Karla';
+  /* You can name it anything */
+  src: url('../src/assets/font-family/Karla-VariableFont_wght.ttf') format('truetype');
+  /* Use correct path */
 }
 
 * {
@@ -256,7 +258,7 @@ body {
   width: 4px;
   height: 60px;
   margin-left: calc(12px - 2px);
-  border-radius: 2px 2px 0 0; 
+  border-radius: 2px 2px 0 0;
   background-color: rgba(24, 158, 9, 1);
 }
 
@@ -264,7 +266,7 @@ body {
   width: 4px;
   height: 30px;
   margin-left: calc(12px - 2px);
-  border-radius: 2px 2px 0 0; 
+  border-radius: 2px 2px 0 0;
   background-color: rgba(172, 153, 153, 1);
 }
 

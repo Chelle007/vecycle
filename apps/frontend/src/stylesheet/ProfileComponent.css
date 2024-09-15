@@ -34,11 +34,19 @@ body {
 }
 
 .avatar {
-    width: 60px;
-    height: 60px;
-    background-color: #333;
+    width: 90px;
+    height: 90px;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
     margin-right: 10px;
+    overflow: hidden;
+    margin-right: 17px;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
 }
 
 .info {
@@ -46,7 +54,7 @@ body {
 }
 
 .welcome {
-    font-size: 14px;
+    font-size: 22px;
     color: #888;
 }
 
@@ -56,25 +64,26 @@ body {
 }
 
 .points-tier {
-    font-size: 14px;
+    font-size: 18px;
     color: #666;
     display: flex;
-    gap: 10px;
+    gap: 16px;
 }
 
 /* Performance Section */
 .performance {
     text-align: center;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .weekly-performance {
-    font-size: 12px;
+    font-size: 16px;
     color: #242222;
 }
 
 .performance-level {
-    font-size: 24px;
+    font-size: 32px;
     color: #4CAF50;
     margin: 10px 0;
 }
@@ -87,11 +96,11 @@ body {
 /* Top Contributions Section */
 .top-contributions {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .section-title {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -99,8 +108,12 @@ body {
 .contributions-chart {
     width: 100%;
     height: 150px;
-    background-color: #f0f0f0;
+    background-size: cover;
     border: 1px solid #ddd;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 10px;
 }
 
