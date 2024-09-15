@@ -1,17 +1,17 @@
-import { useCallback } from "react";
-import { useDropzone } from "react-dropzone";
-import { Box, HStack, Text, VStack } from "@chakra-ui/react";
-import { ScanIcon } from "./Icon";
-import { blobToBase64, getDeviceId, resizeImage } from "../util";
-import { useWallet } from "@vechain/dapp-kit-react";
-import { submitReceipt } from "../networking";
-import { useDisclosure, useSubmission } from "../hooks";
+// import { useCallback } from "react";
+// import { useDropzone } from "react-dropzone";
+// import { Box, HStack, Text, VStack } from "@chakra-ui/react";
+// import { ScanIcon } from "./Icon";
+// import { blobToBase64, getDeviceId, resizeImage } from "../util";
+// import { useWallet } from "@vechain/dapp-kit-react";
+// import { submitReceipt } from "../networking";
+// import { useDisclosure, useSubmission } from "../hooks";
 
-export const Dropzone = () => {
-  const { account } = useWallet();
+// export const Dropzone = () => {
+//     const { account } = useWallet();
 
-  const { setIsLoading, setResponse } = useSubmission();
-  const { onOpen } = useDisclosure();
+//     const { setIsLoading, setResponse } = useSubmission();
+//     const { onOpen } = useDisclosure();
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop: (acceptedFiles: File[]) => {
@@ -30,13 +30,13 @@ export const Dropzone = () => {
         return;
       }
 
-      if (!account) {
-        alert("Please connect your wallet");
-        return;
-      }
+//             if (!account) {
+//                 alert("Please connect your wallet");
+//                 return;
+//             }
 
-      setIsLoading(true);
-      onOpen();
+//             setIsLoading(true);
+//             onOpen();
 
       // const file = files[0];
 

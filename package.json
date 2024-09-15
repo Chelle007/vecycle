@@ -1,5 +1,5 @@
 {
-  "name": "x-app-template",
+  "name": "vecycle",
   "private": true,
   "scripts": {
     "build": "turbo build",

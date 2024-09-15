@@ -1,0 +1,305 @@
+@font-face {
+    font-family: 'Karla';
+    /* You can name it anything */
+    src: url('../src/assets/font-family/Karla-VariableFont_wght.ttf') format('truetype');
+    /* Use correct path */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.back-button {
+    width: 40px;
+    font-size: 30px;
+    border: 0;
+    border-radius: 50px;
+    height: 40px;
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.back-button :hover {
+    filter: opacity(0.5);
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    /* background-color: #d3d3d3; */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.company-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.company-banner {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.company-banner img {
+    font-size: 1.2rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.progress-section {
+    /* background-color: rgb(250, 237, 205); */
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    max-height: 108px;
+}
+
+.progress-info {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.progress-text {
+    font-size: 1.6rem;
+    flex-grow: 1;
+    font-weight: 700;
+    display: flex;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: rgba(66, 66, 66, 1);
+    height: 24px;
+    position: relative;
+    border-radius: 16px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.progress-background {
+    background: linear-gradient(to bottom, #b6d5ae, #e9edc9);
+    position: absolute;
+    width: 100%;
+    margin-top: 40px;
+    padding-top: 20px;
+    z-index: -10;
+    left: 0;
+    border-radius: 30px;
+    top: 250px;
+    bottom: 0;
+}
+
+.progress-background2 {
+    margin-top: 40px;
+    padding-top: 20px;
+}
+
+.progress {
+    height: 100%;
+    background-color: rgb(181, 254, 152);
+}
+
+.check-icon {
+    position: absolute;
+    top: -12px;
+    left: 40%;
+    font-size: 1.5rem;
+    color: limegreen;
+}
+
+.lock-icon {
+    position: absolute;
+    top: -12px;
+    right: 0;
+    font-size: 1.5rem;
+    color: #888;
+}
+
+.voucher-card {
+    background-color: #FEFAE0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-radius: 16px;
+    position: relative;
+}
+
+.voucher-card.locked {
+    opacity: 0.7;
+}
+
+.voucher-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 40%;
+}
+
+.voucher-title {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    margin-left: 16px;
+}
+
+.voucher-status {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: #08d46c;
+    padding: 4px;
+    border-radius: 0 10px 0 10px;
+    padding-left: 6px;
+    width: 150px;
+    /* align-items: flex-end; */
+}
+
+.voucher-status.locked {
+    background-color: #8b8b8b;
+}
+
+.status-text {
+    font-size: 1rem;
+    padding: 5px;
+    flex-direction: row;
+    color: white;
+}
+
+.voucher-icon {
+    font-size: 2.8rem;
+    padding: 10px;
+    padding-right: 22px;
+    color: limegreen;
+}
+
+.voucher-icon.locked {
+    color: #888;
+}
+
+.completed {
+    background-color: #d3d3d3;
+}
+
+.recycle-button {
+    background-color: #8b8585;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.recycle-button p {
+    font-size: 1rem;
+    margin-left: 10px;
+}
+
+/* Milestones */
+.milestone {
+    position: relative;
+    width: 12px;
+    height: 50px;
+    left: calc(50% - 18px - 2px);
+    top: -46px;
+    transform: translate(50%, 0);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.milestone .locked {
+    /* background-color: rgba(172, 153, 153, 1); */
+}
+
+.milestone-2 {
+    top: calc(2 * -48px);
+    left: calc(80% - 18px - 2px);
+}
+
+.milestone-line {
+    width: 4px;
+    height: 60px;
+    margin-left: calc(12px - 2px);
+    border-radius: 2px 2px 0 0;
+    background-color: #08d46c;
+}
+
+.milestone-line-locked {
+    width: 4px;
+    height: 30px;
+    margin-left: calc(12px - 2px);
+    border-radius: 2px 2px 0 0;
+    background-color: rgba(172, 153, 153, 1);
+}
+
+
+.milestone-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: white;
+    border: white 1px solid;
+    /* color: rgba(96, 93, 87, 1) */
+    color: #08d46c;
+}
+
+.milestone-circle-locked {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: white;
+    border: white 1px solid;
+    color: rgba(96, 93, 87, 1);
+}
+
+.progress-rewards-container {
+    background-color: rgba(223, 223, 223, 1);
+}
+
+.b3tr-token-logo {
+    width: 20px;
+    height: 20px;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    margin: auto;
+    margin-left: 6px;
+    margin-right: 6px;
+}

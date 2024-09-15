@@ -1,50 +1,21 @@
-import { DAppKitProvider } from "@vechain/dapp-kit-react";
-import { ChakraProvider, Container, Flex } from "@chakra-ui/react";
-import {
-  Dropzone,
-  UserInstructions,
-  Footer,
-  InfoCard,
-  Instructions,
-  Navbar,
-  SubmissionModal,
-} from "./components";
-import { lightTheme } from "./theme";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import DashboardComponent from './components/DashboardComponent';
+import CompanyProfileComponent from './components/CompanyProfileComponent';
+import ProfileComponent from './components/ProfileComponent';
+// import PostComponent from './components/PostComponent';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <ChakraProvider theme={lightTheme}>
-      <DAppKitProvider
-        usePersistence
-        requireCertificate={false}
-        genesis="test"
-        nodeUrl="https://testnet.vechain.org/"
-        logLevel={"DEBUG"}
-      >
-        {/* <Navbar /> */}
-        <Flex flex={1}>
-          <Container
-            mt={{ base: 4, md: 10 }}
-            maxW="container.xl"
-            mb={{ base: 4, md: 10 }}
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
-          >
-            {/* <InfoCard /> */}
-            {/* <Instructions /> */}
-            <Dropzone />
-            <UserInstructions />
-          </Container>
-        </Flex>
-        {/* <Footer /> */}
-
-        {/* MODALS  */}
-        <SubmissionModal />
-      </DAppKitProvider>
-    </ChakraProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<DashboardComponent />} />
+        {/* <Route path="/post" element={<PostComponent />} /> */}
+        <Route path="/profile" element={<ProfileComponent />} />
+        <Route path="/company-profile" element={<CompanyProfileComponent />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
