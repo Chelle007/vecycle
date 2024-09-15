@@ -18,7 +18,23 @@ export const SubmissionModal = () => {
   const { isOpen, onClose } = useDisclosure();
 
   const renderContent = useMemo(() => {
-    const isValid = response?.validation.validityFactor === 1;
+    let before = 0;
+    let after = 0;
+    let description = "";
+
+    try {
+      if (response?.choices[0]?.message?.content) {
+        const content = response.choices[0].message.content.replace(/```json|```/g, '');
+        const parsedContent = JSON.parse(content);
+        before = parsedContent.validityFactorBefore;
+        after = parsedContent.validityFactorAfter;
+        description = parsedContent.descriptionOfAnalysis;
+      }
+    } catch (error) {
+      console.error("Error parsing response content:", error);
+    }
+
+    const isValid = typeof before === 'number' && typeof after === 'number';
 
     return isValid ? (
       <VStack
@@ -59,7 +75,7 @@ export const SubmissionModal = () => {
         </Text>
         <HStack px={4}>
           <Text fontSize={14} fontWeight={400} textAlign={"center"}>
-            {response?.validation.descriptionOfAnalysis}
+            {description}
           </Text>
         </HStack>
       </VStack>
@@ -91,3 +107,5 @@ export const SubmissionModal = () => {
     </Modal>
   );
 };
+
+export default SubmissionModal;

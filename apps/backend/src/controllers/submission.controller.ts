@@ -13,22 +13,29 @@ export class SubmissionController {
     try {
       const body: Omit<Submission, 'timestamp'> = req.body;
 
+      // Ensure that 'beforeImage' and 'afterImage' are provided
+      if (!body.beforeImage || !body.afterImage) {
+        throw new HttpException(400, 'Both beforeImage and afterImage are required');
+      }
+
       const submissionRequest: Submission = {
         ...body,
         timestamp: Date.now(),
       };
-      // Submission validation with smart contract
-      // await this.contracts.validateSubmission(submissionRequest);
 
-      const validationResult = await this.openai.validateImage(body.image);
+      // Validate images
+      const validationResult = await this.openai.validateImages(body.beforeImage, body.afterImage);
 
-      if (validationResult == undefined || !('validityFactor' in (validationResult as object))) {
-        throw new HttpException(500, 'Error validating image');
+      if (!validationResult || 
+          typeof validationResult.validityFactorBefore !== 'number' || 
+          typeof validationResult.validityFactorAfter !== 'number') {
+        throw new HttpException(500, 'Error validating images');
       }
 
-      const validityFactor = validationResult['validityFactor'];
+      const { validityFactorBefore, validityFactorAfter } = validationResult;
 
-      if (validityFactor > 0.5) {
+      // Determine if the submission is valid
+      if (validityFactorBefore > 0.7 && validityFactorAfter > 0.7) {
         if (!(await this.contracts.registerSubmission(submissionRequest))) {
           throw new HttpException(500, 'Error registering submission and sending rewards');
         }

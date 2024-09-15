@@ -1,0 +1,149 @@
+/* Global settings for mobile-first design */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.dashboard {
+    max-width: 400px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header section */
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 10px;
+    overflow: hidden;
+    margin-right: 17px;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+.info {
+    flex-grow: 1;
+}
+
+.welcome {
+    font-size: 22px;
+    color: #888;
+}
+
+.name {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.points-tier {
+    font-size: 18px;
+    color: #666;
+    display: flex;
+    gap: 16px;
+}
+
+/* Performance Section */
+.performance {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.weekly-performance {
+    font-size: 16px;
+    color: #242222;
+}
+
+.performance-level {
+    font-size: 32px;
+    color: #4CAF50;
+    margin: 10px 0;
+}
+
+.earned,
+.growth {
+    font-size: 14px;
+}
+
+/* Top Contributions Section */
+.top-contributions {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.contributions-chart {
+    display: flex;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    border: 1px solid #ddd;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.contributions-chart img {
+    object-fit: contain;
+    width: 100%;
+}
+
+.view-more {
+    font-size: 14px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+/* Contribution History Section */
+.contribution-history {
+    text-align: center;
+}
+
+.history {
+    margin-bottom: 10px;
+}
+
+.transaction {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f0f0f0;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.transaction-amount {
+    font-weight: bold;
+}
