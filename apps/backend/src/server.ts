@@ -13,7 +13,7 @@ export const openAIHelper = initializeOpenAI();
 async function startServer() {
     try {
         // Initialize database connection
-        await AppDataSource.initialize();
+        // await AppDataSource.initialize();
         console.log('Database connected and schema synchronized.');
 
         // Start the server
