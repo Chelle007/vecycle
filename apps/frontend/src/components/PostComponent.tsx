@@ -5,11 +5,12 @@ import { ChakraProvider, Container, Flex } from "@chakra-ui/react";
 import { default as Dropzone } from './Dropzone';
 import { default as SubmissionModal } from './SubmissionModal';
 import { default as UserInstructions } from './UserInstructions';
+import NavbarComponent from "./NavbarComponent";
 
 
 function PostComponent() {
   return (
-    <ChakraProvider >
+    // <ChakraProvider >
       <DAppKitProvider
         usePersistence
         requireCertificate={false}
@@ -32,14 +33,16 @@ function PostComponent() {
             {/* <Instructions /> */}
             <Dropzone />
             <UserInstructions />
+            <NavbarComponent currentPath="/post" />
           </Container>
         </Flex>
         {/* <Footer /> */}
 
         {/* MODALS  */}
         <SubmissionModal />
+
       </DAppKitProvider>
-    </ChakraProvider>
+    // </ChakraProvider>
   );
 }
 
