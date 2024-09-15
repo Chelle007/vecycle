@@ -10,7 +10,7 @@ import NavbarComponent from "./NavbarComponent";
 
 function PostComponent() {
   return (
-    // <ChakraProvider >
+    <ChakraProvider >
       <DAppKitProvider
         usePersistence
         requireCertificate={false}
@@ -42,7 +42,7 @@ function PostComponent() {
         <SubmissionModal />
 
       </DAppKitProvider>
-    // </ChakraProvider>
+    </ChakraProvider>
   );
 }
 
